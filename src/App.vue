@@ -1,0 +1,147 @@
+<template>
+  <!-- ...existing code... -->
+  <div class="max-w-7xl mx-auto flex flex-col relative">
+
+    <nav class="max-w-7xl px-5 md:fixed top-0 z-[98] w-screen backdrop-blur-md bg-[#121212] bg-opacity-90 shadow-lg">
+      <div class="container mx-auto flex flex-wrap items-center justify-between">
+        <button @click="redirectToHome" class="flex">
+          <span class="self-center text-lg text-[#ff3c3c] font-bold whitespace-nowrap fadein-bot hover:text-red-300 transition-colors flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="#ff3c3c" viewBox="0 0 24 24"><path d="..."/></svg>
+            Ghifari.AK
+            <span class="ml-2 text-xs text-red-300 font-normal">| Code & Creativity</span>
+          </span>
+        </button>
+        <div class="flex md:order-2 fadein-bot">
+          <a href="https://github.com/GhifariAK"><img class="w-9 rounded-full border-2 border-[#ff3c3c] hover:border-red-400 transition-all" src="https://seeklogo.com/images/G/github-logo-2E3852456C-seeklogo.com.png" alt="github"></a>
+        </div>
+        <div class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1" id="mobile-menu-3">
+          <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
+            <li>
+              <router-link to="/"
+                class="fadein-bot text-gray-200 hover:bg-[#ff3c3c] hover:text-white border-b border-gray-700 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-[#ff3c3c] md:p-0 transition-all rounded-lg"
+                aria-current="page">Home</router-link>
+            </li>
+            <li>
+              <router-link to="/about"
+                class="fadein-bot fadein-1 text-gray-200 hover:bg-[#ff3c3c] hover:text-white border-b border-gray-700 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-[#ff3c3c] md:p-0 transition-all rounded-lg">About</router-link>
+            </li>
+            <li>
+              <router-link to="/portfolio"
+                class="fadein-bot fadein-2 text-gray-200 hover:bg-[#ff3c3c] hover:text-white border-b border-gray-700 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-[#ff3c3c] md:p-0 transition-all rounded-lg">Portofolio</router-link>
+            </li>
+            <li>
+              <router-link to="/Contact"
+                class="fadein-bot fadein-3 text-gray-200 hover:bg-[#ff3c3c] hover:text-white border-b border-gray-700 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-[#ff3c3c] md:p-0 transition-all rounded-lg blog">Contact</router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="md:mt-[100px]">
+      <router-view />
+    </div>
+  </div>
+  <footer class="block md:hidden fixed bottom-0 left-0 right-0 rounded-t-3xl border border-[#ff3c3c] bg-[#18181b] bg-opacity-90 backdrop-blur-md backdrop-opacity-90">
+    <nav class="flex justify-around py-4 text-xs">
+      <router-link to="/" class="text-gray-200 hover:text-[#ff3c3c] transition-colors">Home</router-link>
+      <router-link to="/about" class="text-gray-200 hover:text-[#ff3c3c] transition-colors">About</router-link>
+      <router-link to="/portfolio" class="text-gray-200 hover:text-[#ff3c3c] transition-colors">Portfolio</router-link>
+      <router-link to="/blog" class="text-gray-200 hover:text-[#ff3c3c] transition-colors">Blog</router-link>
+    </nav>
+  </footer>
+</template>
+
+<script>
+export default {
+  methods: {
+    redirectToHome() {
+      this.$router.push('/')
+    }
+  },
+}
+</script>
+
+<style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text-glow {
+  text-shadow: 0 0 8px #ff3c3c, 0 0 24px #ff3c3c55;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff3c3c;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-button { width: 20px; }
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  background: #121212;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #e5e7eb;
+  height: 100vh;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #e5e7eb;
+  transition: color 0.3s, background 0.3s;
+  border-radius: 8px;
+}
+
+nav a.router-link-exact-active {
+  display: inline-flex;
+  flex-direction: column;
+  color: #ff3c3c;
+  transition: color 0.3s;
+}
+
+nav a.router-link-exact-active::after {
+  display: inline-block;
+  content: "";
+  margin-top: 0.08em;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ff3c3c;
+}
+
+nav a.router-link-exact-active:hover {
+  color: #ff3c3c;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+</style>
