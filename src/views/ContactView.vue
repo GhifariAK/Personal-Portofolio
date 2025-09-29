@@ -17,6 +17,7 @@
             <div class="font-semibold text-white mt-2">Personal Email</div>
             <a href="mailto: ghifariadamkesuma@gmail.com" class="text-xs text-slate-300 underline 
             hover:text-[#ff3c3c] transition-colors">ghifariadamkesuma@gmail.com</a>
+            
           </div>
 
           <div class="contact-circle-card flex flex-col items-center justify-center gap-2 bg-[#1e1e1f] rounded-full border-2 border-[#ff3c3c] px-8 py-6 shadow-lg hover:scale-105 transition-all duration-300">
